@@ -73,6 +73,29 @@ if(!$user->isLoggedIn()) {
                                     ?>
                                     </tbody>
                                 </table>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                                <ul class="pagination">
+
+                                                    <?php if($dataTable->getActivePage() > 1): ?>
+                                                        <li class="paginate_button previous" id="example2_next"><a href="?page=<?php echo $dataTable->getActivePage()-1; ?>&perPage=<?php echo $dataTable->perPage(); ?>" aria-controls="example2" data-dt-idx="7" tabindex="0">Previous</a></li>
+                                                    <?php endif; ?>
+
+                                                    <?php for($x = 1; $x <= $dataTable->totalPages(); $x++): ?>
+                                                        <li class='paginate_button <?php if($dataTable->getActivePage() === $x) { echo "active"; } ?>'>
+                                                            <a href="?page=<?php echo $x; ?>&perPage=<?php echo $dataTable->perPage(); ?>" aria-controls='example2' data-dt-idx='0' tabindex='0' ><?php echo $x; ?></a>
+                                                        </li>
+                                                    <?php endfor; ?>
+
+                                                    <?php if($dataTable->getActivePage() < $dataTable->totalPages()): ?>
+                                                    <li class='paginate_button' id="example2_next"><a href="?page=<?php echo $dataTable->getActivePage()+1; ?>&perPage=<?php echo $dataTable->perPage(); ?>" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a></li>
+                                                    <?php endif; ?>
+
+                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>

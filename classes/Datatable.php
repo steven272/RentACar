@@ -14,7 +14,21 @@ class Datatable {
         }
     }
 
-    public function data() {
+    public function Data() {
         return $this->_db->results();
     }
+
+    public function totalPages() {
+        return $this->_db->totalPages();
+    }
+
+    public function perPage() {
+        return $this->_db->perPage();
+    }
+
+    public function getActivePage() {
+        return $this->_db->activePage();
+    }
+
+
 }
