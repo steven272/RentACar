@@ -11,3 +11,26 @@
     margin: 2px;
     margin-bottom: 6px;
 }
+
+.pagination {
+    padding-left: 0;
+    border-radius: 4px;
+    float: right !important;
+    margin: 19px 1px 1px 0px !important;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+.form-inline .form-control {
+    width: 115px !important;
+}
+
+.pagination > li {
+    padding: 1px;
+}
+
+.col-sm-12 {
+    margin-top: -13px;
+}

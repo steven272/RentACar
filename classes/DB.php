@@ -9,7 +9,6 @@ class DB {
             $_result,
             $_count = 0,
             $_totalPages = 0,
-            $_perPage = 0,
             $_activePage = 0;
 
     private function __construct() {
@@ -60,14 +59,15 @@ class DB {
         }
 
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $perPage = isset($_GET['perPage']) && $_GET['perPage'] <= 50 ? (int)$_GET['perPage'] : 5;
+        $perPage = 5;
 
         $this->_activePage = $page;
-        $this->_perPage = $perPage;
 
         $start = ($page > 1) ? ($page * $perPage) - $perPage : 0;
 
         $sql = "SELECT SQL_CALC_FOUND_ROWS {$subVales} FROM `{$table}` INNER JOIN {$joint} ON {$table}.$key = {$joint}.id LIMIT {$start}, {$perPage}";
+
+
 
         if(!$this->query($sql)->error()) {
             $total = $this->_pdo->query("SELECT FOUND_ROWS() as total")->fetch()['total'];
@@ -137,10 +137,6 @@ class DB {
 
     public function totalPages() {
         return $this->_totalPages;
-    }
-
-    public function perPage() {
-        return $this->_perPage;
     }
 
     public function results() {
