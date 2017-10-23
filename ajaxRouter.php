@@ -18,7 +18,7 @@ $dataTable->join('customers', 'cars', array(
     ),
 ));
 
-$result = array('pages' => $dataTable->totalPages(), 'pageNumber' => $dataTable->activePage(), 'DataTable' => $dataTable->results());
+$result = array('pages' => $dataTable->totalPages(), 'perPage' => $dataTable->perPage(), 'pageNumber' => $dataTable->activePage(), 'DataTable' => $dataTable->results());
 echo json_encode($result);
 
 

@@ -1,8 +1,9 @@
-function get_data_table(page) {
+function get_data_table(page, perPage) {
     page = page || 1;
+    perPage = perPage || 5;
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'ajaxRouter.php?page=' + page, true);
+    xhr.open('GET', 'ajaxRouter.php?page=' + page + '&perPage=' + perPage, true);
 
     xhr.onreadystatechange = function () {
         try {
@@ -19,10 +20,22 @@ function get_data_table(page) {
 
                     $('.pagination').html("");
 
-                    for(var x=1; x<=obj.pages; x++) {
-                        $('.pagination').append("<li class='paginate_button'><button id='add-new-event' type='button' class='btn btn-primary btn-flat' onclick='get_data_table(" + x + ")'>"+x+"</button></li>");
+                    previous = obj.pageNumber - 1;
+                    next = obj.pageNumber + 1;
 
+                   if(previous >= 1) {
+                        $('.pagination').append("<li class='paginate_button previous'><button type='button' class='btn btn-primary btn-flat' onclick='get_data_table(" + previous + "," + perPage + ")'>Previous</button></li>");
+                   }
+
+                    for(var x=1; x<=obj.pages; x++) {
+                        $('.pagination').append("<li class='paginate_button'><button id='add-new-event' type='button' class='btn btn-primary btn-flat' onclick='get_data_table(" + x + "," + perPage + ")'>"+x+"</button></li>");
                     }
+
+                    if(next <= obj.pages) {
+                        $('.pagination').append("<li class='paginate_button next'><button type='button' class='btn btn-primary btn-flat' onclick='get_data_table(" + next + "," + perPage + ")'>Next</button></li>");
+                    }
+
+                    getSelectItems(page, perPage);
 
                 } else {
                     alert('We experiencing some problems with the request.');
@@ -38,3 +51,13 @@ function get_data_table(page) {
 }
 
 get_data_table();
+
+function getSelectItems(page, perPage) {
+
+    var item = document.getElementById('SelectOption');
+
+    item.addEventListener('change', function () {
+            perPage = item.value;
+            get_data_table(page, perPage);
+    });
+}

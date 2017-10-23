@@ -34,3 +34,19 @@ label {
 .col-sm-12 {
     margin-top: -13px;
 }
+
+.AddLink {
+    float: left;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 1px;
+}
+
+label {
+    font-weight: bold !important;
+}
+
+
+.btn.btn-primary.submit {
+    float: right;
+}

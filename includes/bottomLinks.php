@@ -12,7 +12,6 @@
         });
     });
 </script>
-<script src="/RentACar/js/main.js"></script>
 <script src="/AdminPanel/plugins/iCheck/icheck.min.js"></script>
 <script src="/AdminPanel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/AdminPanel/bower_components/raphael/raphael.min.js"></script>

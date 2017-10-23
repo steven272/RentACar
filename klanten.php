@@ -34,6 +34,21 @@ if(!$user->isLoggedIn()) {
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="dataTables_wrapper form-inline dt-bootstrap">
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="dataTables_length" id="example1_length"><label>Show
+                                                    <select name="example1_length" id="SelectOption" aria-controls="example1" class="form-control input-sm">
+                                                        <option value="5">5</option>
+                                                        <option value="10">10</option>
+                                                        <option value="20">20</option>
+                                                        <option value="40">40</option>
+                                                        <option value="50">50</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -53,20 +68,9 @@ if(!$user->isLoggedIn()) {
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                                                <ul class="pagination">
-
-                                                    <!---->
-                                                    <!--                                                    --><?php //if($dataTable->getActivePage() > 1): ?>
-                                                    <!--                                                        <li class="paginate_button previous" id="example2_next"><a href="?page=--><?php //echo $dataTable->getActivePage()-1; ?><!--&perPage=--><?php //echo $dataTable->perPage(); ?><!--" aria-controls="example2" data-dt-idx="7" tabindex="0">Previous</a></li>-->
-                                                    <!--                                                    --><?php //endif; ?>
-
-<!--                                                    --><?php //if($dataTable->getActivePage() < $dataTable->totalPages()): ?>
-<!--                                                    <li class='paginate_button' id="example2_next"><a href="?page=--><?php //echo $dataTable->getActivePage()+1; ?><!--&perPage=--><?php //echo $dataTable->perPage(); ?><!--" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a></li>-->
-<!--                                                    --><?php //endif; ?>
-
-                                                </ul>
+                                                <ul class="pagination"></ul>
                                             </div>
-
+                                            <a href="klantenAdd.php" class="AddLink">Add a customer</a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,5 +81,5 @@ if(!$user->isLoggedIn()) {
             </section>
         </div>
     </div>
-
+    <script src="/RentACar/js/main.js"></script>
 <?php require_once 'includes/bottomLinks.php'; ?>
